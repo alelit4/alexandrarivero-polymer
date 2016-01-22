@@ -1,0 +1,142 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../iron-image/iron-image.html">
+
+
+<dom-module id="ale-paper-card">
+  <template>
+    <style include="paper-material">
+    
+    </style>
+
+    <!-- <div class="header">
+      <iron-image src="{{image}}"></iron-image>
+      <div class$="[[_computeHeadingClass(image)]]">{{heading}}</div>
+    </div>
+
+    <content></content> -->
+    <div class$="col {{size}}">
+      <div class="card hoverable">
+        <div hidden$="[[!image]]" class="card-image">
+          <img src="{{image}}">
+          <span class="card-title">{{heading}}</span>
+        </div>
+        <div hidden$="[[!content]]"  class="card-content">
+          <p> {{content}} </p>
+          <p hidden$="[[!subcontent]]" class="pink-text">
+            {{subcontent}}
+          </p>
+        </div>
+        <div class="card-action"> <!--TODO-->
+          <div hidden$="[[!place]]" class="chip"> {{place}}</div>
+          <div hidden$="[[!year]]" class="chip"> {{year}}</div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+
+    is: 'ale-paper-card',
+
+    properties: {
+
+      /**
+       * The title of the card.
+       */
+      heading: {
+        type: String,
+        value: ''
+      },
+
+      /**
+       * The url of the title image of the card.
+       */
+      image: {
+        type: String,
+        value: ''
+      },
+      /**
+       * The year of the event
+       */
+      year: {
+        type: String,
+        value: ''
+      },
+      /**
+       * The place of the event
+       */
+      place: {
+        type: String,
+        value: ''
+      },
+      /**
+       * Card Size
+       */
+      size: {
+        type: String,
+        value: ''
+      },
+      /**
+       * Card Content
+       */
+      content: {
+        type: String,
+        value: ''
+      },
+      /**
+       * Card SubContent
+       */
+      subcontent: {
+        type: String,
+        value: ''
+      },
+      /**
+       * The z-depth of the card, from 0-5.
+       */
+      elevation: {
+        type: Number,
+        value: 1,
+        reflectToAttribute: true
+      },
+
+      /**
+       * Set this to true to animate the card shadow when setting a new
+       * `z` value.
+       */
+      animatedShadow: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * Read-only property used to pass down the `animatedShadow` value to
+       * the underlying paper-material style (since they have different names).
+       */
+      animated: {
+        type: Boolean,
+        reflectToAttribute: true,
+        readOnly: true,
+        computed: '_computeAnimated(animatedShadow)'
+      }
+    },
+
+    _computeAnimated: function(animatedShadow) {
+      return animatedShadow;
+    }
+  });
+</script>

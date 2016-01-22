@@ -1,0 +1,18 @@
+{
+  "name": "bower_components",
+  "homepage": "https://github.com/alelit4/alexandrarivero",
+  "authors": [
+    "Alelit4 <alelit4@gmail.com>"
+  ],
+  "description": "curriculum elemnts",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
